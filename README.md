@@ -1,17 +1,23 @@
+# (PVE2 API) PHP Client
+
 This class provides the building blocks for someone wanting to use PHP to talk to Proxmox's API.
+
 Relatively simple piece of code, just provides a get/put/post/delete abstraction layer as methods
 on top of Proxmox's REST API, while also handling the Login Ticket headers required for authentication.
 
-See http://pve.proxmox.com/wiki/Proxmox_VE_API for information about how this API works.
-API spec available at https://pve.proxmox.com/pve-docs/api-viewer/index.html
+## Docs
 
-## Requirements: ##
+- API info available: http://pve.proxmox.com/wiki/Proxmox_VE_API
+- API spec available: https://pve.proxmox.com/pve-docs/api-viewer/index.html
 
-PHP 5/7/8 with cURL (including SSL/TLS) support.
+## Requirements
 
-## Usage: ##
+- PHP 7.x.x/8.x.x
+- cURL (inc. SSL/TLS)
 
-Example - Return status array for each Proxmox Host in this cluster.
+## Usage Examples
+
+### Return Status for each Node in Cluster
 
     require_once("./pve2-api-php-client/pve2_api.class.php");
 
@@ -28,7 +34,7 @@ Example - Return status array for each Proxmox Host in this cluster.
         exit;
     }
 
-Example - Create a new Linux Container (LXC) on the first host in the cluster.
+### Create a new Linux Container (CT)
 
     require_once("./pve2-api-php-client/pve2_api.class.php");
 
@@ -64,7 +70,7 @@ Example - Create a new Linux Container (LXC) on the first host in the cluster.
         exit;
     }
 
-Example - Modify DNS settings on an existing container on the first host.
+### Modify DNS settings for existing CT
 
     require_once("./pve2-api-php-client/pve2_api.class.php");
 
@@ -90,7 +96,7 @@ Example - Modify DNS settings on an existing container on the first host.
         exit;
     }
 
-Example - Delete an existing container.
+### Delete an existing CT
 
     require_once("./pve2-api-php-client/pve2_api.class.php");
 
@@ -106,5 +112,8 @@ Example - Delete an existing container.
         exit;
     }
 
+## License
+
 Licensed under the MIT License.
+
 See LICENSE file.
